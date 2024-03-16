@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"lt.viko.eif.mjakovcenko.bankapp"},{"l":"lt.viko.eif.mjakovcenko.bankapp.db"},{"l":"lt.viko.eif.mjakovcenko.bankapp.menu"},{"l":"lt.viko.eif.mjakovcenko.bankapp.model"},{"l":"lt.viko.eif.mjakovcenko.bankapp.util"}];updateSearchResults();
