@@ -70,6 +70,10 @@ public class Menu {
                     JavaServer javaServer = new JavaServer();
                     javaServer.start(7777,"Client.xml");
                     break;
+                case 5:
+                    JavaServer javaServer1 = new JavaServer();
+                    javaServer1.start(7777,"client.xsd");
+                    break;
                 case 6:
                     System.out.println("Quitting");
                     System.exit(0);

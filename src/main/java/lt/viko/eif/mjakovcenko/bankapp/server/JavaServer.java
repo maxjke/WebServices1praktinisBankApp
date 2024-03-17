@@ -14,8 +14,8 @@ public class JavaServer {
 
     /**
      * Start method opens server socket with given port, accepts client socket and calls sendFile method.
-     * @param port
-     * @param file
+     * @param port The port number on which the server will listen for incoming connections.
+     * @param file The path to the file that will be sent to the connected client.
      */
     public void start(int port, String file) {
         try {
@@ -37,8 +37,8 @@ public class JavaServer {
 
     /**
      * Creates new file with given file path. Puts file bytes into output stream.
-     * @param filePath
-     * @throws IOException
+     * @param filePath The path of the file to be sent.
+     * @throws IOException If an I/O error occurs while reading the file or writing to the socket's output stream.
      */
 
     private void sendFile(String filePath) throws IOException {
