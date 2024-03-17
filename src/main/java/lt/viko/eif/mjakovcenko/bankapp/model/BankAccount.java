@@ -4,6 +4,10 @@ import javax.persistence.*;
 
 /**
  * Bank account class represents data of a bank account of a client. It loads data about this class from database.
+ * @see Account
+ * @see Client
+ * @see Loan
+ * @see CreditCard
  */
 @Entity
 @Table(name="bankaccount")
@@ -12,7 +16,14 @@ public class BankAccount {
     @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(name="id")
     private int id;
+    /**
+     * The balance of the bank account.
+     */
     private double balance;
+
+    /**
+     * The currency of the bank account balance.
+     */
     private String currency;
 
 
@@ -20,8 +31,8 @@ public class BankAccount {
 
     /**
      * Constructor with parameters
-     * @param balance
-     * @param currency
+     * @param balance The initial balance of the bank account.
+     * @param currency The currency of the bank account balance.
      */
     public BankAccount(double balance, String currency) {
         this.balance = balance;
@@ -35,8 +46,8 @@ public class BankAccount {
     }
 
     /**
-     * toString method override to print information about possible bank accounts.
-     * @return returns data of balance and currency.
+     * toString method override to print information about bank account.
+     * @return data of balance and currency.
      */
     @Override
     public String toString() {

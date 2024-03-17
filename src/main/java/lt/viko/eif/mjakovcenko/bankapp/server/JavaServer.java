@@ -4,11 +4,19 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * JavaServer class represents information about server needed to start server and send file over network
+ */
 public class JavaServer {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private OutputStream out;
 
+    /**
+     * Start method opens server socket with given port, accepts client socket and calls sendFile method.
+     * @param port
+     * @param file
+     */
     public void start(int port, String file) {
         try {
             serverSocket = new ServerSocket(port);
@@ -27,6 +35,12 @@ public class JavaServer {
         }
     }
 
+    /**
+     * Creates new file with given file path. Puts file bytes into output stream.
+     * @param filePath
+     * @throws IOException
+     */
+
     private void sendFile(String filePath) throws IOException {
         File file = new File(filePath);
         if (!file.exists()) {
@@ -44,6 +58,9 @@ public class JavaServer {
         bis.close();
     }
 
+    /**
+     * Closes all sockets and streams.
+     */
     public void stop() {
         try {
             if (out != null) out.close();

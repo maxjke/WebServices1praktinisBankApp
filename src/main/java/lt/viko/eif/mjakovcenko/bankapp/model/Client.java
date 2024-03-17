@@ -11,7 +11,10 @@ import java.util.List;
 /**
  * Client class represents client data. It loads data about this class from database.
  * It has one-to-one connection with account and one-to-many connection with bank account.
- *
+ * @see Account
+ * @see BankAccount
+ * @see Loan
+ * @see CreditCard
  */
 @XmlRootElement
 @Entity
@@ -22,24 +25,49 @@ public class Client {
     @GeneratedValue (strategy = GenerationType.AUTO)
     @Column(name="id")
     private int id;
+    /**
+     * The first name of the client.
+     */
     private String firstName;
+
+    /**
+     * The last name of the client.
+     */
     private String lastName;
-    @OneToOne(targetEntity = Account.class,cascade = CascadeType.ALL)
+
+    /**
+     * The client's account details. It has a one-to-one relationship with the Account entity.
+     */
+    @OneToOne(targetEntity = Account.class, cascade = CascadeType.ALL)
     private Account account;
 
-    @OneToMany(targetEntity = BankAccount.class,cascade = CascadeType.ALL)
+    /**
+     * The list of bank accounts associated with the client.
+     * This is a one-to-many relationship.
+     */
+    @OneToMany(targetEntity = BankAccount.class, cascade = CascadeType.ALL)
     private List<BankAccount> bankAccountList = new ArrayList<>();
-    @OneToMany(targetEntity = Loan.class,cascade = CascadeType.ALL)
+
+    /**
+     * The list of loans taken out by the client.
+     * This is a one-to-many relationship.
+     */
+    @OneToMany(targetEntity = Loan.class, cascade = CascadeType.ALL)
     private List<Loan> loanList = new ArrayList<>();
-    @OneToMany(targetEntity = CreditCard.class,cascade = CascadeType.ALL)
-    private List<CreditCard> creditCardList =  new ArrayList<>();
+
+    /**
+     * The list of credit cards owned by the client.
+     * This is a one-to-many relationship.
+     */
+    @OneToMany(targetEntity = CreditCard.class, cascade = CascadeType.ALL)
+    private List<CreditCard> creditCardList = new ArrayList<>();
 
     //Constructor
 
     /**
      * Constructor with parameters
-     * @param firstName
-     * @param lastName
+     * @param firstName The first name of the client.
+     * @param lastName The last name of the client.
      */
     public Client(String firstName, String lastName) {
         this.firstName = firstName;
@@ -53,7 +81,7 @@ public class Client {
     }
     /**
      * toString method override to print information client.
-     * @return returns data of client, account, his bank accounts and credit cards.
+     * @return returns data of client, account, his bank accounts, credit cards and loans.
      */
     @Override
     public String toString(){

@@ -4,6 +4,10 @@ import javax.persistence.*;
 
 /**
  * Loan class represents data about loan. It loads data about this class from database.
+ * @see Client
+ * @see CreditCard
+ * @see Account
+ * @see BankAccount
  *
  */
 @Entity
@@ -14,21 +18,40 @@ public class Loan {
     @Column(name="id")
     private int id;
 
+    /**
+     * The total amount of the loan.
+     */
     private double loanAmount;
+
+    /**
+     * The amount that must be paid monthly by the borrower.
+     */
     private double monthlyPayment;
+
+    /**
+     * The start date of the loan period.
+     */
     private String loanStartDate;
+
+    /**
+     * The end date of the loan period.
+     */
     private String loanEndDate;
+
+    /**
+     * The interest rate of the loan, expressed as a percentage.
+     */
     private int loanPercent;
 
     //Constructor
 
     /**
      * Constructor with parameters
-     * @param loanAmount
-     * @param monthlyPayment
-     * @param loanStartDate
-     * @param loanEndDate
-     * @param loanPercent
+     * @param loanAmount The total amount of the loan.
+     * @param monthlyPayment The monthly payment amount.
+     * @param loanStartDate The start date of the loan.
+     * @param loanEndDate The end date of the loan.
+     * @param loanPercent The loan's interest rate as a percentage.
      */
     public Loan(double loanAmount, double monthlyPayment, String loanStartDate, String loanEndDate, int loanPercent) {
         this.loanAmount = loanAmount;
@@ -43,7 +66,10 @@ public class Loan {
      */
     public Loan() {
     }
-
+    /**
+     * toString method override to print information about  Loan.
+     * @return data of Loan amount, monthly payment, loan start date, loan end date, loan percent.
+     */
     @Override
     public String toString() {
         return String.format("\t\t\t\tLoan: \n" +

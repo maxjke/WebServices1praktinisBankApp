@@ -13,13 +13,36 @@ public class CreditCard {
     @Column(name="id")
     private int id;
 
+    /**
+     * The credit limit of the card.
+     */
     private double cardLimit;
+
+    /**
+     * The expiration date of the card in a String format.
+     */
     private String expireDate;
+
+    /**
+     * The CVC (Card Verification Code) of the card.
+     */
     private String CVC;
+
+    /**
+     * The card number.
+     */
     private String cardNumber;
+
 
     //Constructor
 
+    /**
+     * Constructor with parameters
+     * @param cardLimit The credit limit of the card.
+     * @param expireDate The expiration date of the card.
+     * @param CVC The CVC code of the card.
+     * @param cardNumber The number of the card.
+     */
     public CreditCard(double cardLimit, String expireDate, String CVC, String cardNumber) {
         this.cardLimit = cardLimit;
         this.expireDate = expireDate;
@@ -27,9 +50,16 @@ public class CreditCard {
         this.cardNumber = cardNumber;
     }
 
+    /**
+     * Non-arg constructor
+     */
+
     public CreditCard() {
     }
-
+    /**
+     * toString method override to print information about credit card.
+     * @return data of card limit, card expire date, card cvc code, card number.
+     */
     @Override
     public String toString() {
         return String.format("\t\t\t\t\t\t\tCredit card:\n " +

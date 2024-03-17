@@ -37,7 +37,10 @@ public class Menu {
     /**
      * showMenu method uses user's input to choose what case to do.
      * case 1: loads data about clients.
-     * case 2: loads data about employees.
+     * case 2: converts object to xml file
+     * case 3: converts xml file to pojo classes.
+     * case 4: starts servers and sends xml file over network.
+     * case 5: starts server and sends xsd file over network.
      * case 6: exits from application.
      */
     public static void showMenu(){

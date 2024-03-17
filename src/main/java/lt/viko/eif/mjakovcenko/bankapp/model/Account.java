@@ -2,10 +2,12 @@ package lt.viko.eif.mjakovcenko.bankapp.model;
 import javax.persistence.*;
 
 /**
- * Account class represents account data. It loads data data about this class from database.
+ * Account class represents account data. It loads data about this class from database.
  *
  * @see BankAccount
  * @see Client
+ * @see CreditCard
+ * @see Loan
  */
 @Entity
 @Table(name="account")
@@ -15,7 +17,14 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
     private int id;
+    /**
+     * The username of the account.
+     */
     private String username;
+
+    /**
+     * The password of the account.
+     */
     private String password;
 
 
@@ -23,8 +32,8 @@ public class Account {
 
     /**
      * Constructor with parameters.
-     * @param username
-     * @param password
+     * @param username The username for the account.
+     * @param password The password for the account.
      */
     public Account(String username, String password) {
         this.username = username;
@@ -36,7 +45,10 @@ public class Account {
      */
     public Account() {
     }
-
+    /**
+     * toString method override to print information about account.
+     * @return data of username and password.
+     */
     @Override
     public String toString() {
         return String.format("\t\tUsername: %s\n" +

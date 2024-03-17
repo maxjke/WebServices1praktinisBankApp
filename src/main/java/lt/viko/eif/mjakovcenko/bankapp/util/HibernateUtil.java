@@ -11,10 +11,20 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
  */
 public class HibernateUtil {
 
+    /**
+     * The registry that holds the services required by Hibernate.
+     */
     public static StandardServiceRegistry registry;
 
+    /**
+     * The session factory that creates sessions for interacting with the database.
+     */
     public static SessionFactory sessionFactory;
 
+    /**
+     * Method of Hibernate framework to get session factory to open database connection.
+     * @return session factory. Can be called to open session.
+     */
     public static SessionFactory getSessionFactory() {
 
         if (sessionFactory == null) {
@@ -34,6 +44,10 @@ public class HibernateUtil {
         }
         return  sessionFactory;
     }
+
+    /**
+     * Shuts down registry
+     */
     public static void shutdown(){
         if(registry!=null){
             StandardServiceRegistryBuilder.destroy(registry);
